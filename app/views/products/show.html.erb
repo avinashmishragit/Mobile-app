@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Companyname:</b>
+  <%= @product.companyName %>
+</p>
+
+<p>
+  <b>Address:</b>
+  <%= @product.Address %>
+</p>
+
+<p>
+  <b>Webaddress:</b>
+  <%= @product.webAddress %>
+</p>
+
+<p>
+  <b>Photo:</b>
+  <%= @product.photo %>
+</p>
+
+<%= image_tag @product.photo.url(:small) %>
+<%= link_to 'Edit', edit_product_path(@product) %> |
+<%= link_to 'Back', products_path %>

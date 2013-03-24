@@ -1,8 +1,11 @@
 MobileApp::Application.routes.draw do
   devise_for :users
 
-  resources :products
-
+  resources :products do
+    member do
+      get 'mobileindex'
+    end  
+  end
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

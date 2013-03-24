@@ -1,14 +1,36 @@
 class ProductsController < ApplicationController
   # GET /products
   # GET /products.json
-  before_filter :authenticate_user!,:except=>[:index]
-  def index
-    @products = Product.all
+  before_filter :authenticate_user! , :except => [:mobileindex]
 
-    respond_to do |format|
-      format.html # index.html.erb
-      format.json { render json: @products }
-    end
+  def mobileindex
+    #@products = Product.all
+    #if current_user.products.empty?
+      @res=Product.find_by_user_id(4)
+      @user=User.find(4)    
+      @products=@user.products
+  
+     respond_to do |format|
+       format.html # index.html.erb
+       format.json { render json: @products }
+     end
+    #else
+     # redirect_to new_product_path
+    #end 
+  end
+
+  def index
+    #@products = Product.all
+    #if current_user.products.empty?
+      @products=current_user.products
+  
+     respond_to do |format|
+       format.html # index.html.erb
+       format.json { render json: @products }
+     end
+    #else
+     # redirect_to new_product_path
+    #end 
   end
 
   # GET /products/1
@@ -26,7 +48,7 @@ class ProductsController < ApplicationController
   # GET /products/new.json
   def new
     @product = Product.new
-
+   # @product.user_id = current_user.id
     respond_to do |format|
       format.html # new.html.erb
       format.json { render json: @product }
@@ -42,7 +64,7 @@ class ProductsController < ApplicationController
   # POST /products.json
   def create
     @product = Product.new(params[:product])
-
+    @product.user_id = current_user.id 
     respond_to do |format|
       if @product.save
         format.html { redirect_to @product, notice: 'Product was successfully created.' }

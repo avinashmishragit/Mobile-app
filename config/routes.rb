@@ -2,7 +2,7 @@ MobileApp::Application.routes.draw do
   devise_for :users
 
   resources :products do
-    member do
+    collection do
       get 'mobileindex'
     end  
   end

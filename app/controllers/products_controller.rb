@@ -6,8 +6,8 @@ class ProductsController < ApplicationController
   def mobileindex
     #@products = Product.all
     #if current_user.products.empty?
-      @res=Product.find_by_user_id(4)
-      @user=User.find(4)    
+      #@res=Product.find_by_user_id(4)
+      @user=User.find(3)    
       @products=@user.products
   
      respond_to do |format|

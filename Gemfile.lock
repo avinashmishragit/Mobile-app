@@ -31,6 +31,10 @@ GEM
       activesupport (= 3.2.12)
       arel (~> 3.0.2)
       tzinfo (~> 0.3.29)
+    activerecord-mysql-adapter (0.0.1)
+      activerecord (>= 3.2.9)
+      activesupport (>= 3.2.9)
+      mysql (>= 2.9.0)
     activeresource (3.2.12)
       activemodel (= 3.2.12)
       activesupport (= 3.2.12)
@@ -94,6 +98,8 @@ GEM
     mime-types (1.21)
     multi_json (1.6.1)
     multipart-post (1.2.0)
+    mysql (2.9.1)
+    mysql2 (0.3.11)
     oauth2 (0.8.1)
       faraday (~> 0.8)
       httpauth (~> 0.1)
@@ -172,6 +178,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  activerecord-mysql-adapter
   carrierwave
   cloudinary
   coffee-rails (~> 3.2.1)
@@ -180,6 +187,7 @@ DEPENDENCIES
   execjs
   jquery-rails
   less-rails
+  mysql2
   omniauth
   omniauth-facebook (= 1.2.0)
   paperclip
